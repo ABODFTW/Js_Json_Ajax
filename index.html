@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Here is The Result of your Rquest</h1>
+	<p>
+		
+	</p>
+
+	<script type="text/javascript">
+		addEventListener("DOMContentLoaded" , ()=>{
+			xhttp = new XMLHttpRequest();
+			xhttp.open("GET" , "https://jsonplaceholder.typicode.com/posts/1")
+			var title = document.querySelector("h1")
+			var body = document.querySelector("p")
+
+			xhttp.onload = ()=>
+			{
+				data = xhttp.responseText
+				json = JSON.parse(data)
+				title.innerHTML = json["title"]
+				body.innerHTML = json["body"]
+
+
+
+			}
+			xhttp.send()
+
+
+
+		})
+
+
+
+
+	</script>
+</body>
+</html>
